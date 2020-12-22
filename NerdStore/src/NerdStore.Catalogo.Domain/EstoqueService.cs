@@ -59,7 +59,9 @@ namespace NerdStore.Catalogo.Domain
             }
 
             _produtoRepository.Atualizar(produto);
-            return await _produtoRepository.UnitOfWork.Commit();
+            var sucesso = await _produtoRepository.UnitOfWork.Commit();
+
+            return sucesso;
         }
 
         public async Task<bool> ReporListaProdutosPedido(ListaProdutosPedido lista)
